@@ -11,9 +11,9 @@ export default class Item extends Component {
 		};
 	};
 	//勾选以及取消勾选的id
-	show = (id) => {
+	handleCheck = (id) => {
 		return (event) => {
-			this.props.createCheck(id, event.target.checked);
+			this.props.updateTodo(id, event.target.checked);
 		};
 	};
 
@@ -24,7 +24,7 @@ export default class Item extends Component {
 			// 如果访问者点击"确定"，此方法返回true，否则返回false。
 			// 如果直接使用confrim会提示错误，因此使用window.confrim
 			if (window.confirm("确认删除吗？")) {
-				this.props.deleteById(id);
+				this.props.deleteTodo(id);
 			}
 		};
 	};
@@ -40,7 +40,7 @@ export default class Item extends Component {
 				onMouseEnter={this.handleMouse(true)}
 			>
 				<label>
-					<input type="checkbox" checked={done} onChange={this.show(id)} />
+					<input type="checkbox" checked={done} onChange={this.handleCheck(id)} />
 					<span>{name}</span>
 				</label>
 				<button

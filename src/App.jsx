@@ -23,7 +23,7 @@ class App extends Component {
 	};
 
 	//根据id,修改状态中是否被选中
-	checked = (id, checked) => {
+	updateTodo = (id, checked) => {
 		const { todos } = this.state;
 		const newTodo = todos.map((todo) => {
 			if (todo.id === id) {
@@ -35,7 +35,7 @@ class App extends Component {
 	};
 
 	//点击删除按钮，删除其中一行
-	deleteById = (id) => {
+	deleteTodo = (id) => {
 		const { todos } = this.state;
 		// filter() 方法创建一个新的数组，新数组中的元素是通过检查指定数组中符合条件的所有元素。
 		const newTo = todos.filter((todo) => {
@@ -45,7 +45,7 @@ class App extends Component {
 	};
 
 	//全选
-	choseAll = (done) => {
+	selectAll = (done) => {
 		const { todos } = this.state;
 
 		const newTo = todos.map((todo) => {
@@ -55,7 +55,7 @@ class App extends Component {
 	};
 
 	//删除选中的内容
-	Alldelete = () => {
+	deleteAll = () => {
 		const { todos } = this.state;
 		// filter() 方法创建一个新的数组，新数组中的元素是通过检查指定数组中符合条件的所有元素。
 		const newTo = todos.filter((todo) => {
@@ -70,8 +70,8 @@ class App extends Component {
 				<div className="todo-wrap">
 					<Header addTodo={this.addTodo} />
 					{/*注意：传递参数的属性名称不能是关键字，比如delete*/}
-					<List todos={this.state.todos} show={this.checked} deleteById={this.deleteById} />
-					<Footer allCheck={this.state} choseAll={this.choseAll} Alldelete={this.Alldelete} />
+					<List todos={this.state.todos} updateTodo={this.updateTodo} deleteTodo={this.deleteTodo} />
+					<Footer allCheck={this.state} selectAll={this.selectAll} deleteAll={this.deleteAll} />
 				</div>
 			</div>
 		);

@@ -4,12 +4,12 @@ class Footer extends Component {
 	//全选以及全不选
 	chose = (event) => {
 		//1.如果选中，所有的全都选中
-		this.props.choseAll(event.target.checked);
+		this.props.selectAll(event.target.checked);
 	};
 
 	//删除选中内容
-	Alldelete = () => {
-		this.props.Alldelete();
+	deleteAll = () => {
+		this.props.deleteAll();
 	};
 
 	render() {
@@ -40,7 +40,7 @@ class Footer extends Component {
 				<span>
 					<span>已完成{sum}</span> / 全部{todos.length}
 				</span>
-				<button onClick={this.Alldelete} className="btn btn-danger">
+				<button onClick={this.deleteAll} className="btn btn-danger">
 					清除已完成任务
 				</button>
 			</div>

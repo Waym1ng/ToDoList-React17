@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import PropType from "prop-types";
 import "./index.css";
+import { nanoid } from "nanoid";
 
 export default class Header extends Component {
 	static propTypes = {
-		code: PropType.func.isRequired,
+		addTodo: PropType.func.isRequired,
 	};
 
 	handleKeyUp = (event) => {
@@ -17,7 +18,11 @@ export default class Header extends Component {
 			alert("输入的不能为空");
 			return;
 		}
-		this.props.code(target.value);
+		this.props.addTodo({
+            id: nanoid(),
+            name: target.value,
+            done: false,
+        });
 		target.value = "";
 	};
 

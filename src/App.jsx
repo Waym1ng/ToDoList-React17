@@ -54,8 +54,8 @@ class App extends Component {
 		this.setState({ todos: [...newTo] });
 	};
 
-	//删除选中的内容
-	deleteAll = () => {
+	//清除已完成内容
+	clearAllDone = () => {
 		const { todos } = this.state;
 		// filter() 方法创建一个新的数组，新数组中的元素是通过检查指定数组中符合条件的所有元素。
 		const newTo = todos.filter((todo) => {
@@ -71,7 +71,7 @@ class App extends Component {
 					<Header addTodo={this.addTodo} />
 					{/*注意：传递参数的属性名称不能是关键字，比如delete*/}
 					<List todos={this.state.todos} updateTodo={this.updateTodo} deleteTodo={this.deleteTodo} />
-					<Footer allCheck={this.state} selectAll={this.selectAll} deleteAll={this.deleteAll} />
+					<Footer todos={this.state.todos} selectAll={this.selectAll} clearAllDone={this.clearAllDone} />
 				</div>
 			</div>
 		);

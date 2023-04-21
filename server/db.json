@@ -1,0 +1,13 @@
+{
+	"posts": [
+		{ "id": 1, "title": "唱", "author": "小蔡" },
+		{ "id": 2, "title": "跳", "author": "小蔡" },
+		{ "id": 3, "title": "rap", "author": "小蔡" }
+	],
+	"comments": [
+        { "id": 1, "body": "我还会打篮球", "postId": 1 }
+    ],
+	"profile": {
+        "name": "一名舞者" 
+    }
+}

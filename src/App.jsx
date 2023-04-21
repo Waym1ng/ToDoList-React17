@@ -2,6 +2,7 @@
 import { nanoid } from "nanoid";
 import React, { Component } from "react";
 import "./App.css";
+import Example from "./component/AxiosExample";
 import Footer from "./component/Footer";
 import Header from "./component/Header";
 import List from "./component/List";
@@ -69,10 +70,16 @@ class App extends Component {
 		return (
 			<div className="todo-container">
 				<div className="todo-wrap">
+					<h3>todoList示例</h3>
 					<Header addTodo={this.addTodo} />
 					{/*注意：传递参数的属性名称不能是关键字，比如delete*/}
 					<List todos={this.state.todos} updateTodo={this.updateTodo} deleteTodo={this.deleteTodo} />
 					<Footer todos={this.state.todos} selectAll={this.selectAll} clearAllDone={this.clearAllDone} />
+				</div>
+				<br />
+				<div className="todo-wrap">
+					<h3>axios请求模拟服务端示例</h3>
+					<Example />
 				</div>
 			</div>
 		);

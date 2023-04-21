@@ -6,7 +6,8 @@ export default class Example extends Component {
 
 	componentDidMount() {
 		axios
-			.get("http://localhost:3000/api1/posts")
+			// .get("http://localhost:3000/api1/posts")
+			.get("/api1/posts")
 			.then((result) => {
 				this.setState({ posts: result.data });
 			})
